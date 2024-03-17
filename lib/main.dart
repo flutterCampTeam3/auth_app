@@ -1,7 +1,8 @@
 import 'package:app_github_connection/data/service/supabase_configration.dart';
+import 'package:app_github_connection/pages/signup/signup_page.dart';
 import 'package:flutter/material.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await databaseConfig();
   await setup();
@@ -13,12 +14,6 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
-    );
+    return MaterialApp(home: SignUpPage());
   }
 }
