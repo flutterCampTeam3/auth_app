@@ -19,7 +19,6 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final locator = GetIt.I.get<AllData>();
     locator.getToken();
-    // locator.deleteToken();
     return MaterialApp(
       home: locator.token.isNotEmpty ? const HomePage() : SigninPage(),
       debugShowCheckedModeBanner: false,
