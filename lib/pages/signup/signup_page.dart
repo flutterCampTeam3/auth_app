@@ -1,10 +1,10 @@
+import 'package:app_github_connection/database_auth/auth.dart';
 import 'package:app_github_connection/pages/signin/signin_page.dart';
 import 'package:app_github_connection/widgets/elevated_button_widget.dart';
 import 'package:app_github_connection/widgets/text_fiels_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:app_github_connection/helper/colors.dart';
-
-
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class SignUpPage extends StatelessWidget {
   SignUpPage({super.key});
@@ -71,9 +71,20 @@ class SignUpPage extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              ElevatedButtonWidget(
-                onPressed: () {},
-                text: "Sign up",
+             MaterialButton(
+                color: Colors.red.shade200,
+                onPressed: () async {
+                  //--- SignUp Button
+
+                  try {
+                    await DBService().SignUp(
+                        email: emailController.text,
+                        password: passwordController.text);
+                  } on AuthException catch (e) {
+                    print("email or password rung");
+                  }
+                },
+                child: const Text("SignUp"),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
