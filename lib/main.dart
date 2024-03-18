@@ -1,6 +1,9 @@
+import 'package:app_github_connection/data/data_layer.dart';
 import 'package:app_github_connection/data/service/supabase_configration.dart';
-import 'package:app_github_connection/pages/signup/signup_page.dart';
+import 'package:app_github_connection/pages/home_page.dart';
+import 'package:app_github_connection/pages/signin/signin_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,6 +17,12 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: SignUpPage());
+    final locator = GetIt.I.get<AllData>();
+    locator.getToken();
+    // locator.deleteToken();
+    return MaterialApp(
+      home: locator.token.isNotEmpty ? const HomePage() : SigninPage(),
+      debugShowCheckedModeBanner: false,
+    );
   }
 }

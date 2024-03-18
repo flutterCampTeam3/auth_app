@@ -1,4 +1,5 @@
 import 'package:app_github_connection/helper/colors.dart';
+import 'package:app_github_connection/helper/extintion.dart';
 import 'package:app_github_connection/pages/home_page.dart';
 import 'package:app_github_connection/pages/signin/bloc/signin_bloc.dart';
 import 'package:app_github_connection/pages/signin/widgets/reset_password.dart';
@@ -63,12 +64,7 @@ class SigninPage extends StatelessWidget {
                       }
                       if (state is SuccessSignInState) {
                         Navigator.pop(context);
-
-                        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
-                          builder: (context) {
-                            return const HomePage();
-                          },
-                        ), (route) => false);
+                        context.pushTo(view: const HomePage());
                       }
                       if (state is ErrorSignInState) {
                         Navigator.pop(context);
@@ -150,5 +146,3 @@ class SigninPage extends StatelessWidget {
     );
   }
 }
-
-

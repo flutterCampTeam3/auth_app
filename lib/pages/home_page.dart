@@ -10,7 +10,6 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(Icons.logout),
         title: Text(
           "Home page",
           style: TextStyle(
@@ -28,6 +27,8 @@ class HomePage extends StatelessWidget {
             child: Column(
               children: [
                 ImageView(),
+                gapH30,
+                gapH30,
                 gapH30,
                 Text(
                   "you did it team",

@@ -11,6 +11,5 @@ final class SuccessSignInState extends SignInState {}
 
 final class ErrorSignInState extends SignInState {
   final String massage;
-
   ErrorSignInState({required this.massage});
 }

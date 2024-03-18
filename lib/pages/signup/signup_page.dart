@@ -106,9 +106,9 @@ class SignUpPage extends StatelessWidget {
                             color: Colors.red.shade200,
                             onPressed: () async {
                               bloc.add(CreateAccountEvent(
-                                  email: emailController.text,
-                                  password: passwordController.text, 
-                                  name: firstNameController.text));
+                                email: emailController.text,
+                                password: passwordController.text,
+                              ));
                             },
                             child: const Text("SignUp"),
                           ),

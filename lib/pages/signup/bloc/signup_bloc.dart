@@ -10,7 +10,6 @@ part 'signup_event.dart';
 part 'signup_state.dart';
 
 class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
-
   SignUpBloc() : super(SignUpInitial()) {
     on<CreateAccountEvent>(createAccount);
   }
@@ -18,6 +17,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
   FutureOr<void> createAccount(
       CreateAccountEvent event, Emitter<SignUpState> emit) async {
     try {
+      emit(LoadingState());
       await DBService().SignUp(email: event.email, password: event.password);
       emit(SuccessState());
     } catch (error) {

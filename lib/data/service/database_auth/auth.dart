@@ -11,6 +11,8 @@ class DBService {
 //--- SignUp func
   Future SignUp({required String email, required String password}) async {
     await supabase.auth.signUp(email: email, password: password);
+    // Send email verification
+    await supabase.auth.resetPasswordForEmail(email);
   }
 
   Future SignIn({required String email, required String password}) async {
@@ -20,8 +22,14 @@ class DBService {
   }
 
   //Future SignOut
-    Future SignOut() async {
+  Future SignOut() async {
     await supabase.auth.signOut();
   }
-  
+
+  Future<void> resetPassword({
+    required String email,
+  }) async {
+    final response = await supabase.auth.resetPasswordForEmail(email);
+    return response;
+  }
 }
