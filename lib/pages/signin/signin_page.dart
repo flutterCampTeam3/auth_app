@@ -1,8 +1,11 @@
+import 'package:app_github_connection/database_auth/auth.dart';
 import 'package:app_github_connection/helper/colors.dart';
+import 'package:app_github_connection/pages/home_page.dart';
 import 'package:app_github_connection/pages/signup/signup_page.dart';
 import 'package:app_github_connection/widgets/elevated_button_widget.dart';
 import 'package:app_github_connection/widgets/text_fiels_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class SigninPage extends StatelessWidget {
   SigninPage({super.key});
@@ -121,13 +124,32 @@ class SigninPage extends StatelessWidget {
                 height: 20,
               ),
               ElevatedButtonWidget(
-                onPressed: () {},
+                onPressed: () async {
+                try {
+                  await DBService().SignIn(
+                    email: emailController.text,
+                    password: passwordController.text,
+                  );
+                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
+                    builder: (context) {
+                      return const HomePage();
+                    },
+                  ), (route) => false);
+                } on AuthException catch (e) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(e.message),
+                      duration: Duration(seconds: 2),
+                    ),
+                  );
+                }
+              },
                 text: "Sign in",
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("Don't have as acount?"),
+                  const Text("Don't have an acount?"),
                   TextButton(
                       onPressed: () {
                         Navigator.push(context, MaterialPageRoute(
