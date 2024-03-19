@@ -12,11 +12,11 @@ class SigininCubit extends Cubit<SigininState> {
 
   FutureOr signin({required String email, required String password}) async {
     try {
-      emit(LoadingState());
+      emit(LoadingSignInState());
       await DBService().SignIn(email: email, password: password);
-      emit(SuccessState());
+      emit(SuccessSignInState());
     } on AuthException catch (error) {
-      emit(ErrorState(massage: error.message));
+      emit(ErrorSignInState(massage: error.message));
     }
   }
 
@@ -26,5 +26,14 @@ class SigininCubit extends Cubit<SigininState> {
     } catch (error) {
       print(error);
     }
+  }
+  Future resetPass({required String email}) async{
+    try {
+      emit(LoadingSignInState());
+      await DBService().resetPassword(email: email);
+      emit(SuccessSignInState());
+      } on AuthException catch (error) {
+        emit(ErrorSignInState(massage: error.message));
+      }
   }
 }

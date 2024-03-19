@@ -39,7 +39,7 @@ class SigninPage extends StatelessWidget {
                 ),
                 BlocConsumer<SigininCubit, SigininState>(
                   listener: (context, state) {
-                    if (state is LoadingState) {
+                    if (state is LoadingSignInState) {
                       showDialog(
                           barrierDismissible: false,
                           barrierColor: Colors.transparent,
@@ -58,7 +58,7 @@ class SigninPage extends StatelessWidget {
                             );
                           });
                     }
-                    if (state is SuccessState) {
+                    if (state is SuccessSignInState) {
                       Navigator.pop(context);
     
                       Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
@@ -67,7 +67,7 @@ class SigninPage extends StatelessWidget {
                         },
                       ), (route) => false);
                     }
-                    if (state is ErrorState) {
+                    if (state is ErrorSignInState) {
                       Navigator.pop(context);
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(

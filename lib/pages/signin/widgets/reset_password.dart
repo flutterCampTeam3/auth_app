@@ -1,5 +1,5 @@
 import 'package:app_github_connection/helper/colors.dart';
-import 'package:app_github_connection/pages/signin/bloc/signin_bloc.dart';
+import 'package:app_github_connection/pages/signin/cubit/siginin_cubit.dart';
 import 'package:app_github_connection/widgets/text_fiels_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,7 +9,7 @@ class ResetPassword extends StatelessWidget {
   final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<SignInBloc, SignInState>(
+    return BlocConsumer<SigininCubit, SigininState>(
       listener: (context, state) {
         if (state is LoadingSignInState) {
           showDialog(
@@ -49,7 +49,7 @@ class ResetPassword extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        final bloc = context.read<SignInBloc>();
+        final bloc = context.read<SigininCubit>();
         return TextButton(
             onPressed: () {
               showModalBottomSheet(
@@ -96,8 +96,7 @@ class ResetPassword extends StatelessWidget {
                                   ),
                                 ),
                                 onPressed: () {
-                                  bloc.add(ResetPasswordEvent(
-                                      email: controller.text));
+                                  bloc.resetPass(email: controller.text);
                                 },
                                 child: Text(
                                   "Reset Password",

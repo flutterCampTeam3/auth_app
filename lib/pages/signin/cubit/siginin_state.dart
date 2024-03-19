@@ -5,11 +5,11 @@ sealed class SigininState {}
 
 final class SigininInitial extends SigininState {}
 
-final class LoadingState extends SigininState {}
+final class LoadingSignInState extends SigininState {}
 
-final class SuccessState extends SigininState {}
+final class SuccessSignInState extends SigininState {}
 
-final class ErrorState extends SigininState {
+final class ErrorSignInState extends SigininState {
   final String massage;
-  ErrorState({required this.massage});
+  ErrorSignInState({required this.massage});
 }
