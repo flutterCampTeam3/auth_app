@@ -1,7 +1,11 @@
 import 'package:app_github_connection/helper/colors.dart';
 import 'package:app_github_connection/helper/sized.dart';
+import 'package:app_github_connection/pages/signin/cubit/siginin_cubit.dart';
+import 'package:app_github_connection/pages/signin/signin_page.dart';
+import 'package:app_github_connection/pages/signup/cubit/signup_cubit.dart';
 import 'package:app_github_connection/widgets/image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -10,6 +14,13 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+            onPressed: () {
+              context.read<SigininCubit>().signout();
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => SigninPage()));
+            },
+            icon: const Icon(Icons.logout)),
         title: Text(
           "Home page",
           style: TextStyle(
