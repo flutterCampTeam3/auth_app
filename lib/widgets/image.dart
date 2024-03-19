@@ -2,20 +2,20 @@ import 'package:app_github_connection/helper/extintion.dart';
 import 'package:flutter/material.dart';
 
 class ImageView extends StatelessWidget {
-  const ImageView({super.key});
-
+  const ImageView({super.key, required this.img});
+ final  img;
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
-      child: Image.asset(
-        "assets/fair.jpeg",
+      child: Image.network(
+        img,
         height: context.getHeight() / 1.5,
         width: context.getWidth() * 0.90,
         fit: BoxFit.cover,
         errorBuilder: (context, error, stackTrace) {
           return Image.network(
-            "https://images.pexels.com/photos/949592/pexels-photo-949592.jpeg",
+            img,
             height: context.getHeight() / 1.5,
             width: context.getWidth() * 0.90,
             fit: BoxFit.cover,
