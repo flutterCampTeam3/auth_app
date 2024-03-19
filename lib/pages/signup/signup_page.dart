@@ -1,4 +1,3 @@
-import 'package:app_github_connection/data/service/database_auth/auth.dart';
 import 'package:app_github_connection/helper/extintion.dart';
 import 'package:app_github_connection/helper/sized.dart';
 import 'package:app_github_connection/pages/signin/signin_page.dart';

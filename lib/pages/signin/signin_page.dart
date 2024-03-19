@@ -10,12 +10,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SigninPage extends StatelessWidget {
   SigninPage({super.key});
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController registeredController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController registeredController = TextEditingController();
     return Builder(builder: (context) {
       return Scaffold(
         backgroundColor: white,

@@ -2,7 +2,6 @@ import 'package:app_github_connection/helper/colors.dart';
 import 'package:app_github_connection/helper/sized.dart';
 import 'package:app_github_connection/pages/signin/cubit/siginin_cubit.dart';
 import 'package:app_github_connection/pages/signin/signin_page.dart';
-import 'package:app_github_connection/pages/signup/cubit/signup_cubit.dart';
 import 'package:app_github_connection/widgets/image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

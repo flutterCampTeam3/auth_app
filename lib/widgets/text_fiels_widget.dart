@@ -6,9 +6,9 @@ class TextFieldWidget extends StatelessWidget {
       required this.label,
       required this.hintText,
       required this.controller});
-  String label;
-  String hintText;
-  TextEditingController controller;
+  final String label;
+  final String hintText;
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
