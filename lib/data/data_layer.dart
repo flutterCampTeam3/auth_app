@@ -4,7 +4,7 @@ class AllData {
   final box = GetStorage();
 
   String token = '';
-  String id = '';
+
   AllData() {
     getToken();
   }

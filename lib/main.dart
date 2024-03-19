@@ -1,7 +1,7 @@
-import 'package:app_github_connection/cubit/food_cubit.dart';
+import 'package:app_github_connection/pages/home%20page/cubit/food_cubit.dart';
 import 'package:app_github_connection/data/data_layer.dart';
 import 'package:app_github_connection/data/service/supabase_configration.dart';
-import 'package:app_github_connection/pages/home_page.dart';
+import 'package:app_github_connection/pages/home%20page/home_page.dart';
 import 'package:app_github_connection/pages/signin/cubit/siginin_cubit.dart';
 import 'package:app_github_connection/pages/signin/signin_page.dart';
 import 'package:app_github_connection/pages/signup/cubit/signup_cubit.dart';

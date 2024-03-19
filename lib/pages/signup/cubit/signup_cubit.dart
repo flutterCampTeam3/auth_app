@@ -12,10 +12,10 @@ class SignupCubit extends Cubit<SignupState> {
 
   SignupCubit() : super(SignupInitial());
 
-  Future createAccountCubit({required String email, required String password}) async {
-    emit(LoadingState());
-    await Future.delayed(const Duration(seconds: 1));
+  Future createAccountCubit(
+      {required String email, required String password}) async {
     try {
+      emit(LoadingState());
       await DBService().SignUp(email: email, password: password);
       emit(SuccessState());
     } catch (error) {

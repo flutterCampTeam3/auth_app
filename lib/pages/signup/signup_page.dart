@@ -107,7 +107,7 @@ class SignUpPage extends StatelessWidget {
                                   email: emailController.text,
                                 );
                           },
-                          text: "Sign in",
+                          text: "Sign Up",
                         ),
                       ],
                     );

@@ -12,7 +12,7 @@ class DBService {
   Future SignUp({required String email, required String password}) async {
     await supabase.auth.signUp(email: email, password: password);
     // Send email verification
-    await supabase.auth.resetPasswordForEmail(email);
+    // await supabase.auth.resetPasswordForEmail(email);
   }
 
   Future SignIn({required String email, required String password}) async {

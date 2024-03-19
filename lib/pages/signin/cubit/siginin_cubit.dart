@@ -27,13 +27,14 @@ class SigininCubit extends Cubit<SigininState> {
       print(error);
     }
   }
-  Future resetPass({required String email}) async{
+
+  Future resetPass({required String email}) async {
     try {
       emit(LoadingSignInState());
       await DBService().resetPassword(email: email);
       emit(SuccessSignInState());
-      } on AuthException catch (error) {
-        emit(ErrorSignInState(massage: error.message));
-      }
+    } on AuthException catch (error) {
+      emit(ErrorSignInState(massage: error.message));
+    }
   }
 }
