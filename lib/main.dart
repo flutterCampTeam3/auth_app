@@ -1,3 +1,4 @@
+import 'package:app_github_connection/cubit/food_cubit.dart';
 import 'package:app_github_connection/data/data_layer.dart';
 import 'package:app_github_connection/data/service/supabase_configration.dart';
 import 'package:app_github_connection/pages/home_page.dart';
@@ -31,6 +32,9 @@ class MainApp extends StatelessWidget {
           ),
           BlocProvider(
             create: (context) => SignupCubit(),
+          ),
+          BlocProvider(
+            create: (context) => FoodCubit(),
           ),
         ],
         child: MaterialApp(
